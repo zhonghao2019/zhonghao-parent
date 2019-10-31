@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="zh-gateway" />
+        <module name="zh-item-interface" />
+        <module name="zh-item-service" />
         <module name="zh-registry" />
       </profile>
     </annotationProcessing>
@@ -14,6 +16,9 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="zh-gateway" options="-parameters" />
+      <module name="zh-item" options="" />
+      <module name="zh-item-interface" options="-parameters" />
+      <module name="zh-item-service" options="-parameters" />
       <module name="zh-registry" options="-parameters" />
       <module name="zhonghao-parent" options="-parameters" />
     </option>
