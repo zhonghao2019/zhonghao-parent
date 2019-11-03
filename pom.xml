@@ -11,6 +11,7 @@
         <module>zh-registry</module>
         <module>zh-gateway</module>
         <module>zh-item</module>
+        <module>zh-common</module>
     </modules>
     <packaging>pom</packaging>
 
