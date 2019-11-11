@@ -3,12 +3,13 @@ package com.zhonghao.item.web;
 import com.zhonghao.common.vo.PageResult;
 import com.zhonghao.item.pojo.Brand;
 import com.zhonghao.item.service.BrandService;
+import org.hibernate.validator.constraints.EAN;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 品牌
@@ -29,5 +30,12 @@ public class BrandController {
             @RequestParam(value = "key", required = false) String key) {
 
         return ResponseEntity.ok(brandService.queryBrandByPage(page, rows, sortBy, desc, key));
+    }
+
+    // 品牌新增
+    @PostMapping
+    public ResponseEntity<Void> saveBrand(Brand brand, @RequestParam("cids")List<Long> cids) {
+        brandService.saveBrand(brand, cids);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
