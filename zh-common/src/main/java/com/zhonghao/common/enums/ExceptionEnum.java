@@ -13,7 +13,9 @@ public enum ExceptionEnum {
     CATEGORY_NOT_FOUND(404, "商品分类为空"),
     BRAND_NOT_FOUND(404, "品牌没有找到"),
     BRAND_SAVE_ERROR(500, "品牌新增失败"),
-    SPEC_GROUP_NOT_FOUND(404, "规格组没有找到")
+    SPEC_GROUP_NOT_FOUND(404, "规格组没有找到"),
+    SPEC_PARAM_NOT_FOUND(404, "规格参数没有找到"),
+    SPU_NOT_FOUND(404, "商品没有找到"),
     ;
 
     private int code;
