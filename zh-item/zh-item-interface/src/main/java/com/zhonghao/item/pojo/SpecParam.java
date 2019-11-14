@@ -24,5 +24,4 @@ public class SpecParam {
     private Boolean generic;
     private Boolean searching;
     private String segments;
-
 }

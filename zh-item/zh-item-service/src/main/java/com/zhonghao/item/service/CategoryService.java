@@ -30,4 +30,16 @@ public class CategoryService {
         }
         return list;
     }
+
+    /**
+     * 根据分类id查询分类
+     */
+    public List<Category> queryByIds(List<Long> ids) {
+//        根据多个id查询集合
+        List<Category> list = categoryMapper.selectByIdList(ids);
+        if(CollectionUtils.isEmpty(list)) {
+            throw new ZhException(ExceptionEnum.CATEGORY_NOT_FOUND);
+        }
+        return list;
+    }
 }

@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
+import java.lang.management.CompilationMXBean;
 import java.util.List;
 
 @Service
@@ -61,4 +62,16 @@ public class BrandService {
             }
         }
     }
+
+    /**
+     * 根据id获取品牌
+     */
+    public Brand queryById(Long id) {
+        Brand brand = brandMapper.selectByPrimaryKey(id);
+        if(brand == null) {
+            throw new ZhException(ExceptionEnum.BRAND_NOT_FOUND);
+        }
+        return brand;
+    }
+
 }
