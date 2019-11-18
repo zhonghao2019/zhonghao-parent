@@ -37,9 +37,11 @@ public class SpecificationService {
     /**
      * 根据规格组查询规格参数
      */
-    public List<SpecParam> queryParamByGid(Long gid) {
+    public List<SpecParam> queryParamList(Long gid, Long cid, Boolean searching) {
         SpecParam specParam = new SpecParam();
         specParam.setGroupId(gid);
+        specParam.setCid(cid);
+        specParam.setSearching(searching);
         List<SpecParam> specParamList = specParamMapper.select(specParam);
         if(CollectionUtils.isEmpty(specParamList)) {
             throw new ZhException(ExceptionEnum.PRICE_CANNOT_BE_NULL);

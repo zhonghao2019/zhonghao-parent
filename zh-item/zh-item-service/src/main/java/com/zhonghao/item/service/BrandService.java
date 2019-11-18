@@ -74,4 +74,12 @@ public class BrandService {
         return brand;
     }
 
+    // 根据cid查询品牌列表
+    public List<Brand> queryBrandByCid(Long cid) {
+        List<Brand> brandList = brandMapper.queryByCategoryId(cid);
+        if(CollectionUtils.isEmpty(brandList)) {
+            throw new ZhException(ExceptionEnum.BRAND_NOT_FOUND);
+        }
+        return brandList;
+    }
 }
